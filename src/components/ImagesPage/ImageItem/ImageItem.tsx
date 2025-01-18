@@ -1,11 +1,19 @@
 import React from "react";
 import { CatImage } from "../../../types/catType";
+import { useCatContext } from "../../Home/Home";
 
 interface ImageItemType {
   item: CatImage;
 }
 
 const ImageItem: React.FC<ImageItemType> = ({ item }) => {
+  const { favourites,toggleFavourite } = useCatContext();
+  const isFavourite = favourites.includes(item.id);
+
+  const handleClick = () => {
+    toggleFavourite(item.id)
+  }
+
   return (
     <div className="flex flex-col h-80 border border-gray-300 rounded-lg shadow-md overflow-hidden">
       <div className="w-full h-5/6 bg-gray-100">
@@ -23,13 +31,14 @@ const ImageItem: React.FC<ImageItemType> = ({ item }) => {
 
         <svg
           className="cursor-pointer"
-          fill={false ? "red" : "none"}
+          fill={isFavourite ? "red" : "none"}
           height="25px"
           width="27px"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 51.997 51.997"
           stroke="red"
           strokeWidth="2"
+          onClick={handleClick}
         >
           <path
             d="M51.911,16.242C51.152,7.888,45.239,1.827,37.839,1.827c-4.93,0-9.444,2.653-11.984,6.905

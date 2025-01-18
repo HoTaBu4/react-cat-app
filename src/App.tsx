@@ -1,4 +1,4 @@
-import { Route, BrowserRouter, Routes } from "react-router-dom";
+import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import Home from "./components/Home/Home";
 import Images from "./components/ImagesPage/ImagesPage";
@@ -13,7 +13,8 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}>
-          <Route path="images" element={<Images />} />
+        <Route index element={<Navigate to="images" replace />} />
+          <Route path="images"  element={<Images />} />
           <Route path="Favorite" element={<Liked />} />
         </Route>
       </Routes>

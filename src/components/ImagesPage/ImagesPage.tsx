@@ -1,6 +1,6 @@
 import React from "react";
 import ImageItem from "./ImageItem/ImageItem";
-import { CatContextType, useCatContext } from "../Home/Home";
+import { useCatContext } from "../Home/Home";
 
 const ImagesPage = () => {
   const { catFetch } = useCatContext();

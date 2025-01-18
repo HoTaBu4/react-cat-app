@@ -28,8 +28,6 @@ export const useCatContext = (): CatContextType => {
 
 const Home = () => {    
   const [filters, setFilters] = useState<Breed[]>([]);
-  const apiKey =
-"live_CSt5mccR05NCebfAkLzp8yvQGcgw1WxQf5jWDcrNHrupajoTn6El9yMAvgM2FDgG";
   const [favourites,setFavourites] = useState<string[]>([])
 
   const breedIds = filters.map((filter) => filter.id);
@@ -37,7 +35,7 @@ const Home = () => {
 
   const catFetch = useQuery(
     ["cats", breedIds],
-    () => fetchCats(breedIds, apiKey),
+    () => fetchCats(breedIds ),
     {
       enabled: true,
     }

@@ -1,4 +1,4 @@
-import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, Navigate, HashRouter } from "react-router-dom";
 import "./App.css";
 import Home from "./components/Home/Home";
 import Images from "./components/ImagesPage/ImagesPage";
@@ -10,15 +10,15 @@ const queryClient = new QueryClient()
 function App() {
   return (
     <QueryClientProvider client={queryClient} >
-      <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />}>
-        <Route index element={<Navigate to="images" replace />} />
-          <Route path="images"  element={<Images />} />
-          <Route path="Favorite" element={<Liked />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<Home />}>
+          <Route index element={<Navigate to="images" replace />} />
+            <Route path="images"  element={<Images />} />
+            <Route path="Favorite" element={<Liked />} />
+          </Route>
+        </Routes>
+      </HashRouter>
     </QueryClientProvider>
   );
 }

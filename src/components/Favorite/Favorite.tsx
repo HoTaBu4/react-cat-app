@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { useCatContext } from "../Home/Home";
 import ImageItem from "../ImagesPage/ImageItem/ImageItem";
+import { CatImage } from "../../types/catType";
 
 const Favorite = () => {
   const { favourites } = useCatContext();
-  const [favoriteImages, setFavoriteImages] = useState<any[]>([]);
+  const [favoriteImages, setFavoriteImages] = useState<CatImage[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  console.log(favoriteImages)
 
   useEffect(() => {
     if (favourites.length > 0) {
@@ -32,6 +34,12 @@ const Favorite = () => {
       fetchFavorites();
     }
   }, [favourites]);
+
+  useEffect(() => {
+    if (favourites.length === 0) {
+      setFavoriteImages([])
+    }
+  },[favourites])
 
 
   return (

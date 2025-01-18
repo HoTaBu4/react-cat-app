@@ -17,12 +17,11 @@ const DropDown: React.FC<DropDownButtonProps> = ({
   list,
   selectedValue,
   onChange,
-  placeholder = "Select an option",
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div>
+    <div className=" mb-2">
       <div className="relative inline-block text-left">
         <h2>select the breeds to filter</h2>
         <button

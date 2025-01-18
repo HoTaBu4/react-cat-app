@@ -1,17 +1,17 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { createContext, useContext, useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-import DropDown, { Breed } from "./dropdown/Dropdown";
-import { breeds } from "../../data/breeds";
+import { Breed } from "./dropdown/Dropdown";
 import { useQuery, UseQueryResult } from "react-query";
 import { fetchCats } from "../fetchs/main";
+import classNames from "classnames";
 
 export interface CatContextType {
   filters: Breed[];
   catFetch: UseQueryResult<any, unknown>;
   favourites: string[];
-  toggleFavourite: (value: string) => void
-
+  toggleFavourite: (value: string) => void;
+  handleFilterChange: (value: Breed) => void;
 }
 
 const CatContext = createContext<CatContextType | null>(null);
@@ -33,6 +33,7 @@ const Home = () => {
   const [favourites,setFavourites] = useState<string[]>([])
 
   const breedIds = filters.map((filter) => filter.id);
+  const location = useLocation();
 
   const catFetch = useQuery(
     ["cats", breedIds],
@@ -71,30 +72,29 @@ const Home = () => {
   };
 
   return (
-    <CatContext.Provider value={{ filters, catFetch,favourites, toggleFavourite }}>
+    <CatContext.Provider value={{ filters, catFetch,favourites, toggleFavourite,handleFilterChange }}>
       <div className="flex flex-col">
         <header className="flex flex-row justify-center gap-5 p-4 border-b">
-          <Link
-            to="images"
-            className="block border-solid border-black border rounded-md p-5"
-          >
-            Images
-          </Link>
-          <Link
-            to="Favorite"
-            className="block border-solid border-black border rounded-md p-5"
-          >
-            Favorite
-          </Link>
+        <Link
+        to="images"
+        className={classNames(
+          "block border-solid border-black border rounded-md p-5",
+          { "bg-gray-light": location.pathname === "/images" }
+        )}
+      >
+        Images
+      </Link>
+      <Link
+        to="Favorite"
+        className={classNames(
+          "block border-solid border-black border rounded-md p-5",
+          { "bg-gray-light": location.pathname === "/Favorite" }
+        )}
+      >
+        Favorite
+      </Link>
         </header>
         <div className=" flex-1 pt-5 px-5">
-          <div>
-            <DropDown
-              list={breeds}
-              onChange={handleFilterChange}
-              selectedValue={filters}
-            />
-          </div>
           <Outlet/>
         </div>
       </div>

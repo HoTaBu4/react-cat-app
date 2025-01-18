@@ -49,5 +49,5 @@ export const breeds = [
   { breed: "Oriental", id: "orie" },
   { breed: "Persian", id: "pers" },
   { breed: "Pixie-bob", id: "pixi" },
-  { breed: "Ragamuffin", id: "raga" }
+  { breed: "Ragamuffin", id: "raga" },
 ];

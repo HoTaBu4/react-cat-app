@@ -1,14 +1,11 @@
-import React from 'react';
+import React from "react";
 
 const Favorite = () => {
   return (
     <div>
-      <div>
-
-      </div>
+      <div></div>
       <div>
         <div></div>
-        
       </div>
     </div>
   );

@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 
 export interface Breed {
-  breed: string; 
+  breed: string;
   id: string;
 }
 
 interface DropDownButtonProps {
-  list: Breed[];        
-  selectedValue: Breed[]; 
+  list: Breed[];
+  selectedValue: Breed[];
   onChange: (value: Breed) => void;
-  placeholder?: string;           
-  label?: string;                 
+  placeholder?: string;
+  label?: string;
 }
 
 const DropDown: React.FC<DropDownButtonProps> = ({
@@ -36,7 +36,6 @@ const DropDown: React.FC<DropDownButtonProps> = ({
 
         {isOpen && (
           <div className="absolute h-80 left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
-            
             <div className="py-1 h-80 overflow-y-auto">
               {list.map((item) => (
                 <label

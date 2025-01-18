@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useCatContext } from "../Home/Home";
 import ImageItem from "../ImagesPage/ImageItem/ImageItem";
 

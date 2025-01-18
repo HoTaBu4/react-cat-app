@@ -1,7 +1,7 @@
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./components/Home/Home";
-import Images from "./components/Images/Images";
+import Images from "./components/ImagesPage/ImagesPage";
 import Liked from "./components/Favorite/Favorite"; 
 import { QueryClient, QueryClientProvider } from "react-query";
 

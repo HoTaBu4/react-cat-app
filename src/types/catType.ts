@@ -3,10 +3,11 @@ export interface CatImage {
   width: number;
   height: number;
   url: string;
-  breeds: SerserBreed[];
+  breeds?: SerserBreed[];
+  categories?: any
 }
 
-interface SerserBreed {
+export interface SerserBreed {
   weight: {
     imperial: string;
     metric: string;

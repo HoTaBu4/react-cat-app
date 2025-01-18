@@ -36,7 +36,7 @@ const DropDown: React.FC<DropDownButtonProps> = ({
 
         {isOpen && (
           <div className="absolute h-80 left-0 z-10 bg-white mt-2 w-56 origin-top-right rounded-md shadow-lg ring-1 ring-black/5 focus:outline-none">
-            <div className="py-1 h-80 overflow-y-auto">
+            <div className="py-1 h-80 overflow-y-auto grid-cols-1">
               {list.map((item) => (
                 <label
                   key={item.id}

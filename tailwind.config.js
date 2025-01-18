@@ -3,9 +3,8 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      sm: "480px",
-      md: "768px",
-      lg: "976px",
+      sm: "640px",
+      md: "900px",
       xl: "1440px",
     },
     colors: {
@@ -18,6 +17,7 @@ export default {
       "gray-dark": "#273444",
       gray: "#8492a6",
       "gray-light": "#d3dce6",
+      white: '#ffff',
     },
     fontFamily: {
       sans: ["Graphik", "sans-serif"],

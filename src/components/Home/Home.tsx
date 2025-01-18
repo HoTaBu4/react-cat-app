@@ -6,12 +6,12 @@ import { breeds } from "../../data/breeds";
 import { useQuery, UseQueryResult } from "react-query";
 import { fetchCats } from "../fetchs/main";
 
-interface CatContextType {
+export interface CatContextType {
   filters: Breed[];
   catFetch: UseQueryResult<any, unknown>;
 }
 
-const CatContext = createContext<CatContextType | undefined>(undefined);
+const CatContext = createContext<CatContextType | null>(null);
 
 
 export const useCatContext = () => {
